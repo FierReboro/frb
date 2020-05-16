@@ -1,2 +1,163 @@
-frb
-HuntCook Calculator
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="ResCalc.css">
+</head>
+<body>
+
+<h2>Hunt Cook Ingredients</h2>
+
+<div>
+
+</div>
+
+<button type="button" onclick="clearT()">Clean Tables</button>
+<div class="floaters-l">
+    <table id="produce"></table>
+    <table id="meat"></table>
+    <table id="boil"></table>
+    <table id="cook"></table>
+    <table id="proc"></table>
+    <table id="other"></table>
+</div>
+<div class="floaters-r">
+    <div id="dropdown">
+        <span id="span1" onclick="show()">List</span>
+        <div id="inside">
+            <button type="button" id="ResCalc" onclick="calcu()">Calculate</button>
+            <button type="button" id="Clear" onclick="clr()">Clear</button>
+            <div id="inputs" style="width: inherit;">
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+                <div style="width: inherit;"><input list="allr" ondblclick="this.value=''" type="text" class="sleck"></input>   <input class="ins" type="number" min="0" value="1" maxlength="2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<datalist id="allr">
+<option>Amazon Curry</option>
+<option>Apple Pie</option>
+<option>Avocado Cake</option>
+<option>Ayu Rice</option>
+<option>Ayu Sushi</option>
+<option>Badger Spare Ribs</option>
+<option>Badger Sukiyaki</option>
+<option>Barbecued Bear</option>
+<option>Bear Hotpot</option>
+<option>Bear Venison Ragout</option>
+<option>Becasse Pie</option>
+<option>Bison Burger</option>
+<option>Bison Stew</option>
+<option>Boar Bacon</option>
+<option>Boar Hotpot</option>
+<option>Boar On Rice</option>
+<option>Boar Ramen</option>
+<option>Boiled Shark Fin</option>
+<option>Bread</option>
+<option>Butter</option>
+<option>Camel Couscous</option>
+<option>Camel Kebabs</option>
+<option>Camel Nachos</option>
+<option>Cheese</option>
+<option>Chestnut Potatoes</option>
+<option>Cider</option>
+<option>Corn Pizza</option>
+<option>Crocodile Carpaccio</option>
+<option>Crocodile Wings</option>
+<option>Desert Yukgaejang</option>
+<option>Duck Croquettes</option>
+<option>Duck Hotpot</option>
+<option>Eel Omelet</option>
+<option>Eelon Rice</option>
+<option>Elk Meatballs</option>
+<option>Elk Tacos</option>
+<option>Elk Wellington</option>
+<option>Fo Tiao Qiang</option>
+<option>Foie Gras Sandwich</option>
+<option>Fried Rabbit</option>
+<option>Fried Sunfish</option>
+<option>Ginger Boar</option>
+<option>Grilled Ayu</option>
+<option>Grilled Squab</option>
+<option>Hamam Mahshi</option>
+<option>Hammerhead Aquapazza</option>
+<option>Kanga Bangas</option>
+<option>Kangaroo Steak</option>
+<option>Matagi Skewers</option>
+<option>Matsutake Bacon Pasta</option>
+<option>Matsutake Chestnut Rice</option>
+<option>Miso</option>
+<option>Mountain Mapo Tofu</option>
+<option>Organic Salad</option>
+<option>Ostrich Tartare</option>
+<option>Outback Dog</option>
+<option>Pheasant Consomme</option>
+<option>Pheasant Eggon Rice</option>
+<option>Pheasant Ramen</option>
+<option>Piranha Gratin</option>
+<option>Pizza Amazzona</option>
+<option>Rabbit Cider Soup</option>
+<option>Rabbit Royale</option>
+<option>Raven Meat Pie</option>
+<option>Raven Stew</option>
+<option>Roast Woodcock</option>
+<option>Rustic Origui</option>
+<option>Rustic Sauce</option>
+<option>Savanna Stew</option>
+<option>Savory Squab Udon</option>
+<option>Shark Fin Dumplings</option>
+<option>Smoked Duck</option>
+<option>Smoked Meat Platter</option>
+<option>Smoked Pepper Venison</option>
+<option>Softshell Hotpot</option>
+<option>Softshell Rice</option>
+<option>Steamed Trout</option>
+<option>Stewed Elk Tendons</option>
+<option>Sumeshi</option>
+<option>Sunfish Sushi</option>
+<option>Sunfish Tripe</option>
+<option>Sushi Platter</option>
+<option>Tanuki Soup</option>
+<option>Tofu</option>
+<option>Trout Meuniere</option>
+<option>Truffle Risotto</option>
+<option>Tuna Burger</option>
+<option>Tuna Cutlet</option>
+<option>Tuna Salad</option>
+<option>Unagi Sushi</option>
+<option>Venison Boudin Noir</option>
+<option>Venison Curry Soup</option>
+<option>Venison Meat Sauce</option>
+<option>Vinegar</option>
+<option>White Sauce</option>
+<option>Wild Game Pizza</option>
+<option>Wild Game Platter</option>
+<option>Wild Game Sundubu</option>
+<option>Wild Grillsteak</option>
+<option>Wild Lasagna</option>
+</datalist>
+
+<p id="ppp"></p>
+
+
+<script type="text/javascript" src="ResCalc.js"></script>
+ 
+</body>
+</html>
+
