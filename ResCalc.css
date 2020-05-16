@@ -1,0 +1,136 @@
+html { overflow-y: scroll; }
+
+
+body  {
+    background-color:rgb(188, 169, 169);  }
+
+#Clean  {
+  position: absolute;
+  top: -10px;
+  left: 220px;
+  height: 40px;
+}
+
+.floaters-l {
+  float: left;
+  width: /*850px*/ 90vw;
+  background-color: rgb(157, 156, 163);
+  display: grid;
+  grid-template-columns: 230px 230px 230px;
+
+}
+table   {
+  border: 10px solid rgb(0, 11, 133);
+  width: 230px;
+  /*user-select: none;*/
+}
+
+tbody>:nth-child(1)  {
+  font-size: 15px;
+  background-color: black;
+  color: white;
+}
+tbody>:nth-child(2)  {
+  font-size: 10px;
+}
+th  {
+  border-bottom: 1px solid rgb(30, 0, 181);
+  border-right: 2px solid rgb(41, 26, 0);
+  padding-bottom: 1px;
+  padding-top: 1px;
+        }
+td, th {  
+  white-space:nowrap;
+  font-family: Georgia, 'Times New Roman', Times, serif; }
+tbody>:nth-child(2) th:nth-child(1) {
+  width: 200px;
+}
+tbody>:nth-child(2) th:nth-child(2) {
+  width: 30px;
+}
+td {
+  font-size: 15px;
+  padding-top: 1px;
+  padding-bottom: 1px; }
+td:not(:nth-last-child(1)) {
+  border-right: 5px solid blue; 
+}
+td:nth-child(1) {
+  width: 180px;
+}
+td:nth-child(2) {
+  width: 30px;
+}
+
+
+button  {
+    margin-top: 20px;
+    margin-left: 55px;
+    height: 50px;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+#ResCalc  {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    width: inherit;
+    max-width: 100px;
+}
+#Clear  {
+    background-color: rgb(148, 0, 0);
+    color: rgb(255, 255, 255);
+    width: inherit;
+    max-width: 70px;
+    position: absolute;
+    top: -30px;
+    left: 100px;
+}
+
+.floaters-r {
+  width: 380px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.sleck  {
+  max-width: 300px;
+  margin-bottom: 5px;
+  height: 20px;
+  font-family: fantasy;
+  font-size: 20px;
+  font-weight: bold;  
+}
+.ins  {
+  max-width: 40px;
+  height: 20px; 
+}
+
+#inside {
+  margin-top: 10px;
+  white-space: nowrap;
+  display: block;
+  position: absolute;
+  top: 20px;
+  transition: 0.3s ;
+  transition-timing-function:cubic-bezier(1,.01,.48,.56);
+  transform: scaleY(0);
+}
+
+#span1 {
+  border: 10px solid black;
+  position: absolute;
+  left: 18px;
+  top: -40px;
+  width: 200px;
+  cursor: pointer;
+
+}
+
+#inputs   {
+  position: absolute;
+  top: 50px;
+}
