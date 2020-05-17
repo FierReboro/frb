@@ -6,15 +6,16 @@ body  {
 
 #Clean  {
   position: absolute;
-  top: -10px;
-  left: 220px;
+  top: 74px;
+  left: 5px;
   height: 40px;
 }
 
 .floaters-l {
+  position: absolute;;
+  top: 140px;
   float: left;
   width: /*850px*/ 90vw;
-  background-color: rgb(157, 156, 163);
   display: grid;
   grid-template-columns: 230px 230px 230px;
 
@@ -93,8 +94,8 @@ button  {
 .floaters-r {
   width: 380px;
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 90px;
+  left: 5px;
 }
 .sleck  {
   max-width: 300px;
@@ -115,6 +116,7 @@ button  {
   display: block;
   position: absolute;
   top: 20px;
+  left: 100px;
   transition: 0.3s ;
   transition-timing-function:cubic-bezier(1,.01,.48,.56);
   transform: scaleY(0);
