@@ -309,10 +309,10 @@ var other = [ //36 units
     'FoTiaoQiang'           ,
 ]
 
-var string1 = "this is the moment"
 function mT(x, s) {
     var result = "<table>";
     result += "<tr><th colspan='2'>" ;
+    var lx = x.length;
     result += s;
     result += "</th></tr>"
     result += "<tr><th>Item</th>";
@@ -322,7 +322,7 @@ function mT(x, s) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    for (var i = 0; i < x.length; i++) {
+    for (var i = 0; i < lx; i++) {
     result += "<tr>";
         for (var j = 0; j < x[i].length; j++) {
             jr = nwc(x[i][j]);
@@ -363,7 +363,8 @@ function o2c(l_)    {
 
         function ob(a)   {return window[arr[a][0]]} //return key
         function ze(a)   {return arr[a][1]} //return value
-        for (let a=0; a<arr.length; a++) {
+        let arrlen = arr.length;
+        for (let a=0; a<arrlen; a++) {
             let x = ob(a), z = ze(a);
             if ((typeof x) === "object" ) {
                 let con_ar = Object.entries(x);
@@ -372,7 +373,8 @@ function o2c(l_)    {
                 }
                 arr = arr.concat(con_ar);
             }
-        }
+        }   //Check if a term is an object, then send it to first layer of the array.
+        arr = arr.sort()
 
         for (let i=0; i<arr.length; i++) {//merge identical items; i = index of first element
             for (let l=i+1; l<arr.length; l++) { //the one being compared starts after the first element's position
@@ -381,7 +383,7 @@ function o2c(l_)    {
                     arr.splice(l,1); //remove the latter element from the array.
                     l--; //to compensate for the left-shifting after removing one array element.
                 }
-            }
+            } 
         }
         window.otherarr = [];
         window.boilarr = [];
@@ -393,7 +395,10 @@ function o2c(l_)    {
 
         for (let i = 0; i < arr.length; i++) {
             let a = arr[i][0];
-            let ab = arr[i];
+            let n = arr[i][1];
+            let b = arr[i][0].replace(/([A-Z])/g, ' $1').trim();
+            console.log(b);
+            let ab = [b, n]
             if (other.includes(a) == true) {
                 otherarr.push(ab);
             }   else if (boil.includes(a) == true) {
@@ -411,15 +416,12 @@ function o2c(l_)    {
         
     let nu = function (a, b) { return a[1] - b[1]; }; 
     // arr.sort();
-
-    id = document.createElement("table");
-    id.innerHTML = mT(arr);
-    producedm.innerHTML = mT(producearr, "Produce");
-    meatdm.innerHTML = mT(meatarr, "Game Meat");
-    cookdm.innerHTML = mT(cookarr,"Cooked");
-    boildm.innerHTML = mT(boilarr, "Boiled");
-    procdm.innerHTML = mT(procarr, "Processed");
-    otherdm.innerHTML = mT(otherarr, "Other");
+    if (producearr.length != 0) {producedm.innerHTML = mT(producearr, "Produce");}
+    if (meatarr.length != 0) {meatdm.innerHTML = mT(meatarr, "Game Meat");}
+    if (cookarr.length != 0) {cookdm.innerHTML = mT(cookarr,"Cooked");}
+    if (boilarr.length != 0) {boildm.innerHTML = mT(boilarr, "Boiled");}
+    if (procarr.length != 0) {procdm.innerHTML = mT(procarr, "Processed");}
+    if (otherarr.length != 0) {otherdm.innerHTML = mT(otherarr, "Other");}
 }
 
 
@@ -427,18 +429,28 @@ function o2c(l_)    {
 var iclass = document.getElementsByClassName("ins");
 var sclass = document.getElementsByClassName("sleck");
 var si = sclass.length;
+function clearT() {
+        meatdm.innerHTML = "";
+        producedm.innerHTML = "";
+        cookdm.innerHTML = "";
+        boildm.innerHTML = "";
+        procdm.innerHTML = "";
+        otherdm.innerHTML = "";  
+}
 function calcu()  {
     let z = 0;
     window.calc = [];
     for (let b=0; b<si; b++) {
-        if (sclass[b].value !=undefined && sclass[b].value !=0 && iclass[b].value !=0)   {
-            x = sclass[b].value.replace(/\s/g,'');
-            y = iclass[b].value;
+        x = sclass[b].value.replace(/\s/g,'');
+        y = iclass[b].value;
+        if (typeof window[x] == "object" && y !=0)   {
             calc.push([window[x],y]);
             z += 1;
         }
     }
+    
     if (z > 0) {
+        clearT();
         o2c(calc);
     }
 }
@@ -448,15 +460,8 @@ function clr()  {
         iclass[c].value = 1;
     }
 } // clear the entire input list
-var dt = [["<br>", " "]];
-function clearT() {
-    meatdm.innerHTML = "";
-    producedm.innerHTML = "";
-    cookdm.innerHTML = "";
-    boildm.innerHTML = "";
-    procdm.innerHTML = "";
-    otherdm.innerHTML = "";
-}
+
+
 //show the recipe selection list
 var toggle = 0;
 var insidedm = document.getElementById("inside");
@@ -469,3 +474,20 @@ function show() {
         toggle--;
     }
 }
+
+var datal = document.getElementById("dataml");
+var datas = datal.children;
+// datas = for (let i = 0; i < datas.length; i++) {}
+var dtarr = new Array;
+for (let i=0; i<datas.length; i++) {
+    dtarr.push(datas[i].value);     
+}
+for (i = 0; i < si; i++) {
+    sclass[i].addEventListener('change', function () {
+        if (dtarr.includes(this.value) === true )  {
+            console.log(this.value)
+        }        // logs the className of my_element
+    })
+}
+
+
