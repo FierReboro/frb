@@ -16,14 +16,11 @@ body  {
   top: 140px;
   float: left;
   width: /*850px*/ 90vw;
-  display: grid;
-  grid-template-columns: 230px 230px 230px;
-
 }
 table   {
-  border: 10px solid rgb(0, 11, 133);
   width: 230px;
-  /*user-select: none;*/
+  user-select: none;
+  display: inline-table;
 }
 
 tbody>:nth-child(1)  {
@@ -52,10 +49,8 @@ tbody>:nth-child(2) th:nth-child(2) {
 td {
   font-size: 15px;
   padding-top: 1px;
-  padding-bottom: 1px; }
-td:not(:nth-last-child(1)) {
-  border-right: 5px solid blue; 
-}
+  padding-bottom: 1px;
+  border-bottom: 1px solid blue; }
 td:nth-child(1) {
   width: 180px;
 }
@@ -95,7 +90,7 @@ button  {
   width: 380px;
   position: absolute;
   top: 90px;
-  left: 5px;
+  left: 20px;
 }
 .sleck  {
   max-width: 300px;
@@ -135,4 +130,8 @@ button  {
 #inputs   {
   position: absolute;
   top: 50px;
+}
+#ppp  {
+  position:absolute;
+  left: 500px;
 }
