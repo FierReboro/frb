@@ -363,8 +363,7 @@ function o2c(l_)    {
 
         function ob(a)   {return window[arr[a][0]]} //return key
         function ze(a)   {return arr[a][1]} //return value
-        let arrlen = arr.length;
-        for (let a=0; a<arrlen; a++) {
+        for (let a=0; a<arr.length; a++) {
             let x = ob(a), z = ze(a);
             if ((typeof x) === "object" ) {
                 let con_ar = Object.entries(x);
