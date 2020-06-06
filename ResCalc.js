@@ -375,7 +375,7 @@ function o2c(l_)    {
         }   //Check if a term is an object, then send it to first layer of the array.
         arr = arr.sort()
 
-        for (let i=0; i<arr.length; i++) {//merge identical items; i = index of first element
+        for (let i=0; i<arr.length(); i++) {//merge identical items; i = index of first element
             for (let l=i+1; l<arr.length; l++) { //the one being compared starts after the first element's position
                 if (arr[i][0] === arr[l][0]) {//if the names are identical
                     arr[i][1] += arr[l][1];  //add both values together, then,
