@@ -375,7 +375,7 @@ function o2c(l_)    {
         }   //Check if a term is an object, then send it to first layer of the array.
         arr = arr.sort()
 
-        for (let i=0; i<arr.length(); i++) {//merge identical items; i = index of first element
+        for (let i=0; i<arr.length; i++) {//merge identical items; i=index of first element , l=index of second element
             for (let l=i+1; l<arr.length; l++) { //the one being compared starts after the first element's position
                 if (arr[i][0] === arr[l][0]) {//if the names are identical
                     arr[i][1] += arr[l][1];  //add both values together, then,
@@ -396,7 +396,6 @@ function o2c(l_)    {
             let a = arr[i][0];
             let n = arr[i][1];
             let b = arr[i][0].replace(/([A-Z])/g, ' $1').trim();
-            console.log(b);
             let ab = [b, n]
             if (other.includes(a) == true) {
                 otherarr.push(ab);
@@ -484,7 +483,7 @@ for (let i=0; i<datas.length; i++) {
 for (i = 0; i < si; i++) {
     sclass[i].addEventListener('change', function () {
         if (dtarr.includes(this.value) === true )  {
-            console.log(this.value)
+        //    console.log(this.value)
         }        // logs the className of my_element
     })
 }
